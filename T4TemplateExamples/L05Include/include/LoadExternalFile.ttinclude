@@ -1,0 +1,30 @@
+﻿<#@ assembly name="System.Core" #>
+<#@ import namespace="System.IO" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ assembly name="System.Xml" #>
+<#@ assembly name="System.Xml.Linq" #>
+<#@ import namespace="System.Xml.Linq" #>
+
+<#+ 
+public void Generate(string arg, string templateFile,string xmlFilename){
+	var fi = new System.IO.FileInfo(templateFile);
+	var templateFileTitle = System.IO.Path.GetFileNameWithoutExtension(templateFile );
+
+	XElement e = XElement.Load(Path.Combine(fi.DirectoryName, xmlFilename));
+	var text = e.Elements("body").First().Value.Replace("\n", System.Environment.NewLine); // Replace \n to avoid mismatch line break warning.
+
+	dynamic dyn = XElement.Load(Path.Combine(fi.DirectoryName, xmlFilename));
+#>
+// Generated with <#= templateFile #>
+// Filename is  <#= fi.Name #>
+namespace T4TemplateExamples.<#= fi.Directory.Name #> {
+	public class <#= templateFileTitle #> {
+		private const string argFromTTFile = @"<#= arg #>";
+		private const string readFromXml = @"<#= text #>";
+	}
+}
+<#+
+}
+#>

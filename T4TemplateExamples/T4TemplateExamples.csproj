@@ -1,0 +1,153 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{631AC53A-9C65-45B6-851C-A214EBAEE821}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>T4TemplateExamples</RootNamespace>
+    <AssemblyName>T4TemplateExamples</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="L01Basic\Basic.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Basic.tt</DependentUpon>
+    </Compile>
+    <Compile Include="L02UseTemplateFileName\UseTemplateFileName.cs">
+      <DependentUpon>UseTemplateFileName.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="L03ClassAndMethodInTemplate\ClassAndMethodInTemplate.cs">
+      <DependentUpon>ClassAndMethodInTemplate.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="L04LoadExternalFile\LoadExternalFile.cs">
+      <DependentUpon>LoadExternalFile.tt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="L05Include\LoadExternalFile.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LoadExternalFile.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>dependsUpon.user</LastGenOutput>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon.user">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon0.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon1.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon2.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon3.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon4.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon5.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon6.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon7.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon8.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <Content Include="L06CreateMultiFileAndAddToProject\dependsUpon9.txt">
+      <DependentUpon>dependsUpon.tt</DependentUpon>
+    </Content>
+    <None Include="App.config" />
+    <Content Include="L05Include\LoadExternalFile.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LoadExternalFile.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="L01Basic\Basic.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Basic.cs</LastGenOutput>
+    </Content>
+    <Content Include="L02UseTemplateFileName\UseTemplateFileName.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>UseTemplateFileName.cs</LastGenOutput>
+    </Content>
+    <Content Include="L03ClassAndMethodInTemplate\ClassAndMethodInTemplate.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>ClassAndMethodInTemplate.cs</LastGenOutput>
+    </Content>
+    <Content Include="L04LoadExternalFile\LoadExternalFile.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>LoadExternalFile.cs</LastGenOutput>
+    </Content>
+    <Content Include="L04LoadExternalFile\SomeFile.xml" />
+    <None Include="L05Include\include\LoadExternalFile.ttinclude">
+      <LastGenOutput>LoadExternalFile1.cs</LastGenOutput>
+    </None>
+    <Content Include="L05Include\SomeFile.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

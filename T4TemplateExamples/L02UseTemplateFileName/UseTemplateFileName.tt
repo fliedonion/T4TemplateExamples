@@ -1,0 +1,20 @@
+﻿<#@ template debug="false" hostspecific="true" language="C#" #>
+<#@ assembly name="System.Core" #>
+<#@ import namespace="System.Linq" #>
+<#@ import namespace="System.Text" #>
+<#@ import namespace="System.Collections.Generic" #>
+<#@ output extension=".cs" #>
+
+<#
+	// note: firstline hostspecific was changed to true.
+	var fi = new System.IO.FileInfo( Host.TemplateFile );
+	var templateFileTitle = System.IO.Path.GetFileNameWithoutExtension( Host.TemplateFile );
+#>
+// Generated with <#= Host.TemplateFile #>
+// Filename is  <#= fi.Name #>
+namespace T4TemplateExamples.<#= fi.Directory.Name #> {
+	public class <#= templateFileTitle #> {
+
+	}
+}
+
